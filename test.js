@@ -1,17 +1,25 @@
 "ui";
 
 ui.layout(
-    <linear id="container">
-    </linear>
+    <vertical>
+        <text text="列表例子" />
+        <list id="列表">
+            <horizontal>
+                <text id="名字" text="{{名字}}" textSize="15" w="150" />
+                <text id="排名" text="{{排名}}" textSize="15" w="150" />
+                <text id="删除" text="删除" />
+            </horizontal>
+        </list>
+    </vertical>
 );
-
-// 动态创建3个文本控件，并加到container容器中
-// 这里仅为实例，实际上并不推荐这种做法，如果要展示列表，
-// 使用list组件；动态创建十几个、几十个View会让界面卡顿
-for (let i = 0; i < 3; i++) {
-    let textView = ui.inflate(
-        <text textSize="10sp"></text>
-        , ui.container);
-    textView.setText("文本控件" + i);
-    ui.container.addView(textView);
+//创建数组
+var items = []
+//添加对象到数组
+for (var i = 0; i < 10; i++) {
+    items.push({
+        "名字": "名字" + i,
+        "排名": "排名" + i
+    })
 }
+//
+ui.列表.setDataSource(items);
