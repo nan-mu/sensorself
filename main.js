@@ -27,6 +27,7 @@ ui.layout(
         <button w="*" id="interval_time_change" text="确定" />
         <text> </text>
         <text>本软件用于提交物理创新实验作业, 大概率不会有后续版本, 点击下方按钮跳转项目地址</text>
+        <button w="*" id="turn_github" text="跳转" />
     </vertical >
 );
 
@@ -103,3 +104,4 @@ ui.interval_time_change.click(() => {
     interval_time = ui.interval_time_input.getText();
     console.log(interval_time);
 });
+ui.turn_github.click(() => app.openUrl("https://github.com/nan-mu/sensorself"));
